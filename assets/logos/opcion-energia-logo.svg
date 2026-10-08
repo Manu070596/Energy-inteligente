@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#28a96b"/><stop offset="1" stop-color="#159bad"/></linearGradient></defs><circle cx="50" cy="50" r="47" fill="url(#g)"/><path d="M25 50a25 25 0 1 0 50 0" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".9"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90">
+<rect width="320" height="90" fill="white"/>
+<g transform="translate(12 10)">
+<circle cx="35" cy="35" r="31" fill="#63c43b"/>
+<path d="M20 36c0-13 9-23 22-23 11 0 20 8 20 19 0 14-11 26-26 26-8 0-14-3-18-7" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+<path d="M43 13c-5 3-8 8-8 14" fill="none" stroke="#159bad" stroke-width="6" stroke-linecap="round"/>
+</g>
+<text x="92" y="57" font-family="Arial,Helvetica,sans-serif" font-size="31" font-weight="700" fill="#17345f">Opción Energía</text>
+</svg>
