@@ -34,6 +34,29 @@ footer{background:#091a35;color:#dbe6f5;text-align:center;padding:28px 15px;font
 .clients-proof h2{font-size:clamp(28px,4vw,38px);line-height:1.2;margin-bottom:12px;color:#17233c}
 .clients-proof h2 strong{color:#174b91}
 .clients-proof p{color:#536178;font-size:19px;max-width:720px;margin:auto}
+
+.omie-section{max-width:none;background:#fff}
+.omie-inner{max-width:1160px;margin:auto}
+.omie-card{background:linear-gradient(135deg,#102a56,#174b91);color:#fff;border-radius:22px;padding:34px;box-shadow:0 16px 38px rgba(16,42,86,.18)}
+.omie-head{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-bottom:26px}
+.omie-kicker{display:inline-block;color:#f6c928;font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:12px;margin-bottom:8px}
+.omie-card h2{font-size:clamp(28px,4vw,38px);line-height:1.15;margin-bottom:8px}
+.omie-card .omie-desc{color:#dce9fb;max-width:680px}
+.omie-date{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:10px 14px;white-space:nowrap;font-size:13px;font-weight:800}
+.omie-main{display:grid;grid-template-columns:.9fr 1.6fr;gap:24px;align-items:stretch}
+.omie-average{background:#fff;color:#17233c;border-radius:17px;padding:24px;display:flex;flex-direction:column;justify-content:center}
+.omie-average small{color:#647188;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.omie-average strong{font-size:clamp(42px,6vw,62px);line-height:1;color:#174b91;margin:8px 0}
+.omie-average span{color:#647188;font-weight:700}
+.omie-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+.omie-stat{background:#f6f8fb;border-radius:11px;padding:12px}.omie-stat b{display:block;font-size:19px;color:#17233c}.omie-stat small{font-size:12px;color:#6c7890}
+.omie-chart-wrap{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:17px;padding:18px 16px 14px}
+.omie-chart-title{font-size:13px;font-weight:800;color:#dce9fb;margin-bottom:12px}
+.omie-chart{height:230px;display:flex;align-items:flex-end;gap:4px}
+.omie-bar{flex:1;min-width:3px;background:#f6c928;border-radius:5px 5px 2px 2px;position:relative;opacity:.9}
+.omie-bar:hover{opacity:1}.omie-bar span{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-size:9px;color:#cbd9ed}
+.omie-source{margin-top:22px;text-align:right;font-size:12px;color:#b9cce6}.omie-source a{color:#fff;font-weight:800}
+@media(max-width:780px){.omie-head{flex-direction:column}.omie-date{white-space:normal}.omie-main{grid-template-columns:1fr}.omie-card{padding:24px}.omie-chart{height:190px}}
 </style>
 </head>
 <body>
@@ -79,6 +102,36 @@ footer{background:#091a35;color:#dbe6f5;text-align:center;padding:28px 15px;font
 <div><div class="step-number">3</div><h3>Te presentamos las opciones</h3><p>Te explicamos todo con claridad para que puedas decidir sin presión.</p></div>
 </div>
 </section>
+
+<section class="omie-section" id="precio-omie">
+<div class="omie-inner">
+<h2 class="title">Precio de la electricidad en España</h2>
+<p class="subtitle">Consulta el precio del mercado diario OMIE y su evolución horaria. El dato se actualiza automáticamente con la información oficial publicada por OMIE.</p>
+<div class="omie-card">
+<div class="omie-head">
+<div><div class="omie-kicker">Mercado diario · OMIE</div><h2>Precio OMIE España</h2><p class="omie-desc">Referencia del mercado mayorista eléctrico. Úsala para conocer cómo está evolucionando el precio de la energía, no como precio final de una factura.</p></div>
+<div class="omie-date" id="omieDate">Actualizando datos…</div>
+</div>
+<div class="omie-main">
+<div class="omie-average">
+<small>Precio medio</small>
+<strong id="omieAverage">—</strong>
+<span>€/MWh</span>
+<div class="omie-stats">
+<div class="omie-stat"><small>Mínimo</small><b id="omieMin">—</b></div>
+<div class="omie-stat"><small>Máximo</small><b id="omieMax">—</b></div>
+</div>
+</div>
+<div class="omie-chart-wrap">
+<div class="omie-chart-title">Evolución del precio por hora · España</div>
+<div class="omie-chart" id="omieChart"><span style="color:#dce9fb;font-size:13px">Cargando datos de OMIE…</span></div>
+</div>
+</div>
+<div class="omie-source">Fuente: <a href="https://www.omie.es/" target="_blank" rel="noopener">OMIE</a> · Mercado diario</div>
+</div>
+</div>
+</section>
+
 <section>
 <h2 class="title">Nuestro compromiso</h2>
 <div class="values">
@@ -129,6 +182,33 @@ footer{background:#091a35;color:#dbe6f5;text-align:center;padding:28px 15px;font
 </div>
 </section>
 <footer>© 2026 Energía Inteligente · Asesoramiento energético profesional · 8 años de experiencia</footer>
+
+<script>
+(async function(){
+const euro = n => Number(n).toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2});
+try{
+const response=await fetch('data/omie.json?ts='+Date.now(),{cache:'no-store'});
+if(!response.ok) throw new Error('No se pudo cargar OMIE');
+const data=await response.json();
+document.getElementById('omieDate').textContent='Datos del '+new Date(data.date+'T12:00:00').toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'});
+document.getElementById('omieAverage').textContent=euro(data.average);
+document.getElementById('omieMin').textContent=euro(data.min)+' €/MWh';
+document.getElementById('omieMax').textContent=euro(data.max)+' €/MWh';
+const chart=document.getElementById('omieChart');
+chart.innerHTML='';
+const values=(data.hourly||[]).map(x=>Number(x.price)).filter(Number.isFinite);
+if(!values.length){chart.innerHTML='<span style="color:#dce9fb;font-size:13px">El gráfico se mostrará cuando se ejecute la primera actualización automática.</span>';return}
+const min=Math.min(...values),max=Math.max(...values),range=Math.max(max-min,1);
+values.forEach((price,i)=>{
+const bar=document.createElement('div');bar.className='omie-bar';bar.style.height=(22+((price-min)/range)*78)+'%';bar.title=(data.hourly[i].label||'')+': '+euro(price)+' €/MWh';
+const label=document.createElement('span');label.textContent=data.hourly[i].label||'';bar.appendChild(label);chart.appendChild(bar);
+});
+}catch(e){
+document.getElementById('omieDate').textContent='Datos pendientes de actualización';
+}
+})();
+</script>
+
 <script>
 document.getElementById('leadForm').addEventListener('submit',async function(e){
 e.preventDefault();
