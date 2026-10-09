@@ -52,9 +52,9 @@ footer{background:#091a35;color:#dbe6f5;text-align:center;padding:28px 15px;font
 .omie-stat{background:#f6f8fb;border-radius:11px;padding:12px}.omie-stat b{display:block;font-size:19px;color:#17233c}.omie-stat small{font-size:12px;color:#6c7890}
 .omie-chart-wrap{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:17px;padding:18px 16px 14px}
 .omie-chart-title{font-size:13px;font-weight:800;color:#dce9fb;margin-bottom:12px}
-.omie-chart{height:230px;display:flex;align-items:flex-end;gap:4px}
+.omie-chart{height:230px;display:flex;align-items:flex-end;gap:4px;padding-bottom:26px;position:relative}
 .omie-bar{flex:1;min-width:3px;background:#f6c928;border-radius:5px 5px 2px 2px;position:relative;opacity:.9}
-.omie-bar:hover{opacity:1}.omie-bar span{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-size:9px;color:#cbd9ed}
+.omie-bar:hover{opacity:1}.omie-bar span{position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);font-size:10px;color:#cbd9ed;white-space:nowrap}
 .omie-source{margin-top:22px;text-align:right;font-size:12px;color:#b9cce6}.omie-source a{color:#fff;font-weight:800}
 @media(max-width:780px){.omie-head{flex-direction:column}.omie-date{white-space:normal}.omie-main{grid-template-columns:1fr}.omie-card{padding:24px}.omie-chart{height:190px}}
 </style>
@@ -192,16 +192,20 @@ if(!response.ok) throw new Error('No se pudo cargar OMIE');
 const data=await response.json();
 document.getElementById('omieDate').textContent='Datos del '+new Date(data.date+'T12:00:00').toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'});
 document.getElementById('omieAverage').textContent=euro(data.average);
-document.getElementById('omieMin').textContent=euro(data.min)+' €/MWh';
-document.getElementById('omieMax').textContent=euro(data.max)+' €/MWh';
 const chart=document.getElementById('omieChart');
 chart.innerHTML='';
-const values=(data.hourly||[]).map(x=>Number(x.price)).filter(Number.isFinite);
+const hourly=(data.hourly||[]).filter(x=>Number.isFinite(Number(x.price)));
+const values=hourly.map(x=>Number(x.price));
+document.getElementById('omieMin').textContent=euro(Math.min(...values))+' €/MWh';
+document.getElementById('omieMax').textContent=euro(Math.max(...values))+' €/MWh';
 if(!values.length){chart.innerHTML='<span style="color:#dce9fb;font-size:13px">El gráfico se mostrará cuando se ejecute la primera actualización automática.</span>';return}
 const min=Math.min(...values),max=Math.max(...values),range=Math.max(max-min,1);
 values.forEach((price,i)=>{
-const bar=document.createElement('div');bar.className='omie-bar';bar.style.height=(22+((price-min)/range)*78)+'%';bar.title=(data.hourly[i].label||'')+': '+euro(price)+' €/MWh';
-const label=document.createElement('span');label.textContent=data.hourly[i].label||'';bar.appendChild(label);chart.appendChild(bar);
+const bar=document.createElement('div');bar.className='omie-bar';bar.style.height=(22+((price-min)/range)*78)+'%';bar.title=(hourly[i].label||'')+': '+euro(price)+' €/MWh';
+const label=document.createElement('span');
+if(i%4!==0 && i!==values.length-1) label.style.display='none';
+label.textContent=(hourly[i].label||'').slice(0,2)+' h';
+bar.appendChild(label);chart.appendChild(bar);
 });
 }catch(e){
 document.getElementById('omieDate').textContent='Datos pendientes de actualización';
