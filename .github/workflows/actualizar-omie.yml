@@ -2,21 +2,33 @@ name: Actualizar precio OMIE
 
 on:
   schedule:
-    - cron: "0 15 * * *"
+    # Cada día a las 15:30 UTC (16:30 en invierno, 17:30 en verano en España).
+    - cron: "30 15 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: actualizar-precio-omie
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - run: python3 scripts/update_omie.py
-      - run: |
+      - name: Actualizar datos de OMIE
+        run: python3 scripts/update_omie.py
+      - name: Guardar cambios
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/omie.json
-          git diff --cached --quiet || git commit -m "Actualizar precio OMIE"
-          git push
+          if git diff --cached --quiet; then
+            echo "Los datos de OMIE ya están actualizados; no hay cambios."
+          else
+            git commit -m "Actualizar precio OMIE"
+            git push
+          fi
