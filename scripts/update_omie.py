@@ -80,13 +80,17 @@ for hour in range((max_period + 3) // 4):
     if chunk:
         hourly.append({"label": f"{hour:02d}:00", "price": round(sum(chunk) / len(chunk), 2)})
 
+hourly_prices = [item["price"] for item in hourly]
+if not hourly_prices:
+    raise SystemExit("OMIE no contiene precios horarios válidos")
+
 data = {
     "date": today.isoformat(),
     "source": "OMIE",
     "file_version": used_version,
-    "average": round(sum(prices) / len(prices), 2),
-    "min": round(min(prices), 2),
-    "max": round(max(prices), 2),
+    "average": round(sum(hourly_prices) / len(hourly_prices), 2),
+    "min": round(min(hourly_prices), 2),
+    "max": round(max(hourly_prices), 2),
     "hourly": hourly,
 }
 
