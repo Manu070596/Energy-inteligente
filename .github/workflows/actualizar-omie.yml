@@ -2,8 +2,8 @@ name: Actualizar precio OMIE
 
 on:
   schedule:
-    # Actualiza cada día después de la publicación habitual de OMIE.
-    - cron: "30 15 * * *"
+    # Comprueba con frecuencia si OMIE ha publicado o revisado el precio del día.
+    - cron: "*/15 * * * *"
   workflow_dispatch:
   push:
     paths:
