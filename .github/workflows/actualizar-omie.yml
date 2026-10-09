@@ -2,9 +2,13 @@ name: Actualizar precio OMIE
 
 on:
   schedule:
-    # Cada día a las 15:30 UTC (16:30 en invierno, 17:30 en verano en España).
+    # Actualiza cada día después de la publicación habitual de OMIE.
     - cron: "30 15 * * *"
   workflow_dispatch:
+  push:
+    paths:
+      - "scripts/update_omie.py"
+      - ".github/workflows/actualizar-omie.yml"
 
 permissions:
   contents: write
