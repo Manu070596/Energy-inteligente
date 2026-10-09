@@ -15,15 +15,16 @@ base_url = (
 def download_omie_file():
     last_error = None
     # OMIE can publish/revise versions; retry in case the file is not ready yet.
-    for attempt in range(4):
-        for version in range(1, 10):
+    for attempt in range(3):
+        # Try the newest version first; OMIE may revise the same day's file.
+        for version in range(9, 0, -1):
             url = base_url.format(version=version)
             request = urllib.request.Request(
                 url,
                 headers={"User-Agent": "Energy-inteligente-OMIE-updater/1.0"}
             )
             try:
-                with urllib.request.urlopen(request, timeout=30) as response:
+                with urllib.request.urlopen(request, timeout=10) as response:
                     raw = response.read().decode("latin-1")
                 # Don't accept an HTML error page or an empty/incomplete file.
                 if "MARGINALPDBC;" in raw and any(
@@ -33,8 +34,8 @@ def download_omie_file():
                     return raw, version
             except (urllib.error.URLError, TimeoutError, OSError) as exc:
                 last_error = exc
-        if attempt < 3:
-            time.sleep(20)
+        if attempt < 2:
+            time.sleep(15)
 
     raise SystemExit(
         f"No se encontró un fichero de precios OMIE válido para {date_str}. "
