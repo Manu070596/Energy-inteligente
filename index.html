@@ -37,26 +37,37 @@ footer{background:#091a35;color:#dbe6f5;text-align:center;padding:28px 15px;font
 
 .omie-section{max-width:none;background:#fff}
 .omie-inner{max-width:1160px;margin:auto}
-.omie-card{background:linear-gradient(135deg,#102a56,#174b91);color:#fff;border-radius:22px;padding:34px;box-shadow:0 16px 38px rgba(16,42,86,.18)}
+.omie-card{background:linear-gradient(135deg,#102a56 0%,#174b91 100%);color:#fff;border-radius:22px;padding:34px;box-shadow:0 16px 38px rgba(16,42,86,.16);border:1px solid rgba(16,42,86,.08)}
 .omie-head{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-bottom:26px}
 .omie-kicker{display:inline-block;color:#f6c928;font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:12px;margin-bottom:8px}
 .omie-card h2{font-size:clamp(28px,4vw,38px);line-height:1.15;margin-bottom:8px}
 .omie-card .omie-desc{color:#dce9fb;max-width:680px}
-.omie-date{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:10px 14px;white-space:nowrap;font-size:13px;font-weight:800}
+.omie-date{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:10px 14px;white-space:nowrap;font-size:13px;font-weight:800;color:#fff}
 .omie-main{display:grid;grid-template-columns:.9fr 1.6fr;gap:24px;align-items:stretch}
-.omie-average{background:#fff;color:#17233c;border-radius:17px;padding:24px;display:flex;flex-direction:column;justify-content:center}
+.omie-average{background:#fff;color:#17233c;border-radius:17px;padding:24px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 8px 24px rgba(5,24,55,.12)}
 .omie-average small{color:#647188;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
-.omie-average strong{font-size:clamp(42px,6vw,62px);line-height:1;color:#174b91;margin:8px 0}
+.omie-average strong{font-size:clamp(42px,6vw,62px);line-height:1;color:#174b91;margin:8px 0;letter-spacing:-.04em}
 .omie-average span{color:#647188;font-weight:700}
 .omie-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
-.omie-stat{background:#f6f8fb;border-radius:11px;padding:12px}.omie-stat b{display:block;font-size:19px;color:#17233c}.omie-stat small{font-size:12px;color:#6c7890}
-.omie-chart-wrap{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:17px;padding:18px 16px 14px}
-.omie-chart-title{font-size:13px;font-weight:800;color:#dce9fb;margin-bottom:12px}
-.omie-chart{height:230px;display:flex;align-items:flex-end;gap:4px;padding-bottom:26px;position:relative}
-.omie-bar{flex:1;min-width:3px;background:#f6c928;border-radius:5px 5px 2px 2px;position:relative;opacity:.9}
-.omie-bar:hover{opacity:1}.omie-bar span{position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);font-size:10px;color:#cbd9ed;white-space:nowrap}
-.omie-source{margin-top:22px;text-align:right;font-size:12px;color:#b9cce6}.omie-source a{color:#fff;font-weight:800}
-@media(max-width:780px){.omie-head{flex-direction:column}.omie-date{white-space:normal}.omie-main{grid-template-columns:1fr}.omie-card{padding:24px}.omie-chart{height:190px}}
+.omie-stat{background:#f6f8fb;border-radius:11px;padding:12px;border:1px solid #e5ebf3}
+.omie-stat b{display:block;font-size:19px;color:#102a56}
+.omie-stat small{font-size:12px;color:#6c7890}
+.omie-chart-wrap{background:#f7f9fc;color:#17233c;border:1px solid #e2e8f2;border-radius:17px;padding:18px 16px 14px;min-width:0}
+.omie-chart-title{font-size:13px;font-weight:800;color:#102a56;margin-bottom:8px}
+.omie-chart-subtitle{font-size:12px;color:#647188;margin-bottom:8px}
+.omie-chart{width:100%;position:relative;min-height:200px}
+.omie-chart svg{display:block;width:100%;height:auto;overflow:visible}
+.omie-chart .chart-grid{stroke:#dfe6f0;stroke-width:1;stroke-dasharray:4 5}
+.omie-chart .chart-area{fill:url(#omieAreaGradient)}
+.omie-chart .chart-line{fill:none;stroke:#174b91;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.omie-chart .chart-point{fill:#f6c928;stroke:#174b91;stroke-width:2;cursor:pointer;transition:r .15s}
+.omie-chart .chart-point:hover{r:6}
+.omie-chart .chart-label{font:11px Arial,Helvetica,sans-serif;fill:#647188}
+.omie-chart .chart-y-label{font:10px Arial,Helvetica,sans-serif;fill:#647188}
+.omie-source{margin-top:22px;text-align:right;font-size:12px;color:#dce9fb}
+.omie-source a{color:#f6c928;font-weight:800;text-decoration:none}
+.omie-source a:hover{text-decoration:underline}
+@media(max-width:780px){.omie-head{flex-direction:column}.omie-date{white-space:normal}.omie-main{grid-template-columns:1fr}.omie-card{padding:22px 18px}.omie-chart{min-height:180px}.omie-average{padding:21px}}
 </style>
 </head>
 <body>
@@ -200,13 +211,17 @@ document.getElementById('omieMin').textContent=euro(Math.min(...values))+' €/M
 document.getElementById('omieMax').textContent=euro(Math.max(...values))+' €/MWh';
 if(!values.length){chart.innerHTML='<span style="color:#dce9fb;font-size:13px">El gráfico se mostrará cuando se ejecute la primera actualización automática.</span>';return}
 const min=Math.min(...values),max=Math.max(...values),range=Math.max(max-min,1);
-values.forEach((price,i)=>{
-const bar=document.createElement('div');bar.className='omie-bar';bar.style.height=(22+((price-min)/range)*78)+'%';bar.title=(hourly[i].label||'')+': '+euro(price)+' €/MWh';
-const label=document.createElement('span');
-if(i%4!==0 && i!==values.length-1) label.style.display='none';
-label.textContent=(hourly[i].label||'').slice(0,2)+' h';
-bar.appendChild(label);chart.appendChild(bar);
-});
+const width=720,height=250,left=42,right=12,top=18,bottom=35;
+const plotW=width-left-right,plotH=height-top-bottom;
+const x=i=>left+(values.length===1?plotW/2:(i/(values.length-1))*plotW);
+const y=price=>top+((max-price)/range)*plotH;
+const points=values.map((price,i)=>({x:x(i),y:y(price),price,label:String(hourly[i].label||'').slice(0,5)}));
+const line=points.map((p,i)=>(i?'L':'M')+' '+p.x.toFixed(2)+' '+p.y.toFixed(2)).join(' ');
+const area=line+' L '+points[points.length-1].x.toFixed(2)+' '+(top+plotH)+' L '+points[0].x.toFixed(2)+' '+(top+plotH)+' Z';
+const grid=[0,1,2,3].map(i=>{const gy=top+(plotH*i/3),value=max-(range*i/3);return '<line class="chart-grid" x1="'+left+'" y1="'+gy+'" x2="'+(width-right)+'" y2="'+gy+'"/><text class="chart-y-label" x="'+(left-8)+'" y="'+(gy+4)+'" text-anchor="end">'+euro(value)+'</text>';}).join('');
+const labels=points.map((p,i)=>i%4===0||i===points.length-1?'<text class="chart-label" x="'+p.x+'" y="'+(height-9)+'" text-anchor="middle">'+p.label+'</text>':'').join('');
+const dots=points.map(p=>'<circle class="chart-point" cx="'+p.x+'" cy="'+p.y+'" r="3.5"><title>'+p.label+': '+euro(p.price)+' €/MWh</title></circle>').join('');
+chart.innerHTML='<svg viewBox="0 0 '+width+' '+height+'" role="img" aria-label="Gráfica del precio OMIE por hora en euros por megavatio hora"><defs><linearGradient id="omieAreaGradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f6c928" stop-opacity=".38"/><stop offset="100%" stop-color="#f6c928" stop-opacity=".02"/></linearGradient></defs>'+grid+'<path class="chart-area" d="'+area+'"/><path class="chart-line" d="'+line+'"/>'+dots+labels+'</svg>';
 }catch(e){
 document.getElementById('omieDate').textContent='Datos pendientes de actualización';
 }
