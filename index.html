@@ -207,8 +207,8 @@ const chart=document.getElementById('omieChart');
 chart.innerHTML='';
 const hourly=(data.hourly||[]).filter(x=>Number.isFinite(Number(x.price)));
 const values=hourly.map(x=>Number(x.price));
-document.getElementById('omieMin').textContent=euro(Math.min(...values))+' €/MWh';
-document.getElementById('omieMax').textContent=euro(Math.max(...values))+' €/MWh';
+document.getElementById('omieMin').textContent=euro(Number.isFinite(Number(data.min))?Number(data.min):Math.min(...values))+' €/MWh';
+document.getElementById('omieMax').textContent=euro(Number.isFinite(Number(data.max))?Number(data.max):Math.max(...values))+' €/MWh';
 if(!values.length){chart.innerHTML='<span style="color:#dce9fb;font-size:13px">El gráfico se mostrará cuando se ejecute la primera actualización automática.</span>';return}
 const min=Math.min(...values),max=Math.max(...values),range=Math.max(max-min,1);
 const width=720,height=250,left=42,right=12,top=18,bottom=35;
