@@ -106,8 +106,9 @@ data = {
     "source": "OMIE",
     "file_version": used_version,
     "average": round(sum(hourly_prices) / len(hourly_prices), 2),
-    "min": round(min(hourly_prices), 2),
-    "max": round(max(hourly_prices), 2),
+    # OMIE muestra máximos y mínimos por periodo de 15 minutos, no por media horaria.
+    "min": round(min(prices), 2),
+    "max": round(max(prices), 2),
     "hourly": hourly,
 }
 
