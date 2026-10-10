@@ -2,9 +2,9 @@
   "date": "2026-10-10",
   "source": "OMIE",
   "file_version": 1,
-  "average": 130.0,
+  "average": 130,
   "min": -0.01,
-  "max": 218.87,
+  "max": 219.66,
   "hourly": [
     {
       "label": "00:00",
@@ -60,11 +60,11 @@
     },
     {
       "label": "13:00",
-      "price": 0.0
+      "price": 0
     },
     {
       "label": "14:00",
-      "price": 0.0
+      "price": 0
     },
     {
       "label": "15:00",
