@@ -1,106 +1,106 @@
 {
-  "date": "2026-10-16",
+  "date": "2026-10-17",
   "source": "OMIE",
   "file_version": 1,
-  "average": 191.64,
-  "min": 79.26,
-  "max": 285.95,
+  "average": 107.15,
+  "min": 0.99,
+  "max": 212.04,
   "hourly": [
     {
       "label": "00:00",
-      "price": 220.94
+      "price": 204.09
     },
     {
       "label": "01:00",
-      "price": 209.44
+      "price": 188.28
     },
     {
       "label": "02:00",
-      "price": 202.71
+      "price": 171.88
     },
     {
       "label": "03:00",
-      "price": 199.01
+      "price": 148.26
     },
     {
       "label": "04:00",
-      "price": 199.12
+      "price": 137.7
     },
     {
       "label": "05:00",
-      "price": 204.02
+      "price": 129.66
     },
     {
       "label": "06:00",
-      "price": 226.49
+      "price": 150.77
     },
     {
       "label": "07:00",
-      "price": 254.11
+      "price": 171.27
     },
     {
       "label": "08:00",
-      "price": 269.3
+      "price": 191.39
     },
     {
       "label": "09:00",
-      "price": 243.15
+      "price": 133.72
     },
     {
       "label": "10:00",
-      "price": 205.84
+      "price": 64.23
     },
     {
       "label": "11:00",
-      "price": 129.16
+      "price": 2.49
     },
     {
       "label": "12:00",
-      "price": 92.5
+      "price": 1.03
     },
     {
       "label": "13:00",
-      "price": 90.0
+      "price": 1.07
     },
     {
       "label": "14:00",
-      "price": 90.0
+      "price": 1.07
     },
     {
       "label": "15:00",
-      "price": 84.02
+      "price": 1.07
     },
     {
       "label": "16:00",
-      "price": 113.27
+      "price": 3.83
     },
     {
       "label": "17:00",
-      "price": 173.44
+      "price": 49.64
     },
     {
       "label": "18:00",
-      "price": 227.27
+      "price": 110.97
     },
     {
       "label": "19:00",
-      "price": 264.64
+      "price": 143.33
     },
     {
       "label": "20:00",
-      "price": 254.69
+      "price": 146.21
     },
     {
       "label": "21:00",
-      "price": 237.61
+      "price": 151.07
     },
     {
       "label": "22:00",
-      "price": 212.46
+      "price": 142.42
     },
     {
       "label": "23:00",
-      "price": 196.25
+      "price": 126.22
     }
   ]
 }
