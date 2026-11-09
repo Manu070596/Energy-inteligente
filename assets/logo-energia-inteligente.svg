@@ -6,15 +6,15 @@
 </defs>
 <g transform="translate(5 3)">
  <path d="M70 5C34 5 8 32 8 68c0 25 12 42 29 59 8 8 12 16 12 28h43c0-12 4-20 12-29 17-18 27-34 27-58C131 33 106 5 70 5Z" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
- <path d="M43 82C35 50 55 26 99 17c1 36-16 62-51 76-3-3-4-7-5-11Z" fill="url(#leaf)"/>
- <path d="M47 111c9-25 25-46 49-67" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/>
+ <path d="M39 88C29 51 53 22 104 14c3 42-18 75-59 91-4-5-5-10-6-17Z" fill="url(#leaf)"/>
+ <path d="M43 119c10-31 31-58 61-82" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/>
  <path d="M49 158h42M55 171h30M61 184h18" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
 </g>
 <g font-family="Arial,Helvetica,sans-serif" font-style="italic" font-weight="800">
  <text x="155" y="77" font-size="58" fill="#fff">Energía</text>
  <text x="153" y="137" font-size="59" fill="#f6c928">Inteligente</text>
- <path d="M155 151 Q300 181 490 145" fill="none" stroke="url(#green)" stroke-width="9" stroke-linecap="round"/>
- <path d="M489 19C478 43 463 60 437 68c4-26 20-43 52-49Z" fill="url(#leaf)"/>
- <path d="M444 63c10-15 22-27 39-37" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".85"/>
+ <path d="M155 151 Q295 190 492 145" fill="none" stroke="url(#green)" stroke-width="15" stroke-linecap="round"/>
+ <path d="M493 15C487 43 472 68 437 76c1-32 19-54 56-61Z" fill="url(#leaf)"/>
+ <path d="M441 70c12-20 29-36 52-49" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".85"/>
 </g>
 </svg>
