@@ -167,15 +167,17 @@ footer{background:#091a35;color:#dbe6f5;text-align:center;padding:28px 15px;font
 <section id="asesoramiento">
 <h2 class="title">¿Necesitas más asesoramiento?</h2>
 <p class="subtitle">Déjanos tu nombre y teléfono y nos pondremos en contacto contigo para orientarte personalmente, sin compromiso.</p>
-<form class="lead-form" id="leadForm" action="https://formsubmit.co/ajax/manuelalfageme@aenergetic.es" method="POST">
+<form class="lead-form" id="leadForm" action="https://formsubmit.co/manuelalfageme@aenergetic.es" method="POST" enctype="multipart/form-data">
 <input type="hidden" name="_subject" value="Nuevo contacto - Energía Inteligente">
 <input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://energia-inteligente.es/?contacto=enviado#asesoramiento">
 <input type="hidden" name="_captcha" value="true">
 <div class="lead-form-grid">
 <div><label for="lead-name">Nombre</label><input id="lead-name" type="text" name="name" placeholder="Tu nombre" required></div>
 <div><label for="lead-phone">Teléfono</label><input id="lead-phone" type="tel" name="phone" placeholder="Tu teléfono" required></div>
 <div class="full"><label for="lead-reason">¿En qué podemos ayudarte?</label><select id="lead-reason" name="motivo"><option value="Asesoramiento energético">Asesoramiento energético</option><option value="Revisión de factura">Revisión de factura</option><option value="Cambiar de tarifa o comercializadora">Cambiar de tarifa o comercializadora</option><option value="Otro">Otro</option></select></div>
-<div class="full"><label class="consent"><input type="checkbox" name="consentimiento" value="Acepto que Energía Inteligente utilice estos datos para contactar conmigo" required><span>Acepto que Energía Inteligente utilice estos datos únicamente para ponerse en contacto conmigo en relación con mi solicitud.</span></label></div>
+<div class="full"><label for="lead-invoice">Adjuntar factura (opcional)</label><input id="lead-invoice" type="file" name="factura" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"><small style="display:block;color:#68758a;margin-top:7px">Formatos permitidos: PDF, JPG o PNG. Tamaño máximo recomendado: 8 MB.</small></div>
+<div class="full"><label class="consent"><input type="checkbox" name="consentimiento" value="Acepto que Energía Inteligente utilice estos datos para contactar conmigo" required><span>Acepto que Energía Inteligente utilice mis datos y, si adjunto una factura, la información contenida en ella para analizar mi solicitud y ponerse en contacto conmigo.</span></label></div>
 <div class="full" style="text-align:center"><button class="btn btn-yellow" type="submit">Quiero que me contactéis</button></div>
 </div>
 <div class="lead-form-status" id="leadStatus" aria-live="polite"></div>
@@ -229,17 +231,27 @@ document.getElementById('omieDate').textContent='Datos pendientes de actualizaci
 </script>
 
 <script>
-document.getElementById('leadForm').addEventListener('submit',async function(e){
-e.preventDefault();
-const form=this,status=document.getElementById('leadStatus'),button=form.querySelector('button');
-button.disabled=true;button.textContent='Enviando...';status.textContent='';
-try{
-const response=await fetch(form.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)});
-if(!response.ok) throw new Error('No se pudo enviar');
-form.reset();status.textContent='¡Gracias! Hemos recibido tus datos y nos pondremos en contacto contigo.';
-}catch(error){
-status.textContent='No hemos podido enviar tus datos. Puedes contactarnos por WhatsApp o correo.';
-}finally{button.disabled=false;button.textContent='Quiero que me contactéis';}
+(function(){
+const params=new URLSearchParams(window.location.search);
+if(params.get('contacto')==='enviado'){
+const status=document.getElementById('leadStatus');
+if(status) status.textContent='¡Gracias! Hemos recibido tu solicitud y nos pondremos en contacto contigo.';
+}
+const form=document.getElementById('leadForm');
+if(form) form.addEventListener('submit',function(e){
+const file=document.getElementById('lead-invoice');
+if(file && file.files.length){
+const selected=file.files[0];
+const allowed=['application/pdf','image/jpeg','image/png'];
+const extension=/\.(pdf|jpe?g|png)$/i.test(selected.name);
+if(!allowed.includes(selected.type) || !extension){
+e.preventDefault();document.getElementById('leadStatus').textContent='Adjunta únicamente una factura en PDF, JPG o PNG.';return;
+}
+if(selected.size>8*1024*1024){
+e.preventDefault();document.getElementById('leadStatus').textContent='La factura supera los 8 MB. Reduce el tamaño del archivo e inténtalo de nuevo.';return;
+}
+}
 });
+})();
 </script></body>
 </html>
