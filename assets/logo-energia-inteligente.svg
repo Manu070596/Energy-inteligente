@@ -1,24 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 205" role="img" aria-labelledby="title">
 <title id="title">Energía Inteligente</title>
 <defs>
- <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d1f51b"/><stop offset=".42" stop-color="#70d80b"/><stop offset="1" stop-color="#159522"/></linearGradient>
- <linearGradient id="green" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#5bd900"/><stop offset=".48" stop-color="#38cf16"/><stop offset="1" stop-color="#00ad58"/></linearGradient>
+ <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d7f51b"/><stop offset=".43" stop-color="#69d20a"/><stop offset="1" stop-color="#15951e"/></linearGradient>
+ <linearGradient id="green" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#55d900"/><stop offset=".52" stop-color="#2dcc18"/><stop offset="1" stop-color="#00ad59"/></linearGradient>
 </defs>
-<!-- Bombilla blanca y hoja verde ancha, sin nervio blanco -->
-<g transform="translate(5 3)">
+<g transform="translate(4 2)">
  <path d="M70 5C34 5 8 32 8 68c0 25 12 42 29 59 8 8 12 16 12 28h43c0-12 4-20 12-29 17-18 27-34 27-58C131 33 106 5 70 5Z" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
- <path d="M35 91C25 54 50 23 104 13c5 45-17 78-61 98-5-6-7-12-8-20Z" fill="url(#leaf)"/>
- <path d="M44 111C52 82 72 55 99 31" fill="none" stroke="#168b20" stroke-width="4.5" stroke-linecap="round"/>
+ <path d="M36 92C23 55 49 22 105 13c4 47-18 80-62 100-5-6-7-13-7-21Z" fill="url(#leaf)"/>
+ <path d="M46 112C48 87 68 62 99 34" fill="none" stroke="#081c3b" stroke-width="6" stroke-linecap="round"/>
  <path d="M49 158h42M55 171h30M61 184h18" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
 </g>
-<!-- Tipografía del boceto -->
 <g font-family="Arial,Helvetica,sans-serif" font-style="italic" font-weight="800">
  <text x="155" y="77" font-size="58" fill="#fff">Energía</text>
  <text x="153" y="137" font-size="59" fill="#f6c928">Inteligente</text>
- <!-- Hoja exterior ancha, con nervio verde oscuro -->
  <path d="M493 13C487 43 470 68 435 77c1-34 20-56 58-64Z" fill="url(#leaf)"/>
- <path d="M442 69c12-19 29-36 51-50" fill="none" stroke="#168b20" stroke-width="3.5" stroke-linecap="round"/>
- <!-- Franja inferior gruesa, larga y muy curvada como en el boceto -->
- <path d="M155 164C235 124 337 146 407 153C451 158 477 143 501 124" fill="none" stroke="url(#green)" stroke-width="19" stroke-linecap="round"/>
+ <path d="M445 69C455 49 472 31 492 17" fill="none" stroke="#081c3b" stroke-width="4.5" stroke-linecap="round"/>
+ <path d="M155 164C225 128 312 140 386 151C441 161 477 145 501 124" fill="none" stroke="url(#green)" stroke-width="21" stroke-linecap="round"/>
 </g>
 </svg>
