@@ -1,20 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 205" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 205" role="img" aria-labelledby="title">
 <title id="title">Energía Inteligente</title>
 <defs>
- <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b8f000"/><stop offset="1" stop-color="#31b900"/></linearGradient>
- <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#d58a00"/><stop offset=".55" stop-color="#ffe22b"/><stop offset="1" stop-color="#f5b900"/></linearGradient>
- <linearGradient id="blue" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#4bd3f2"/><stop offset="1" stop-color="#1680ce"/></linearGradient>
+ <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c4f51b"/><stop offset=".48" stop-color="#55ce08"/><stop offset="1" stop-color="#168d18"/></linearGradient>
+ <linearGradient id="green" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#63d900"/><stop offset=".55" stop-color="#25c83c"/><stop offset="1" stop-color="#00a95b"/></linearGradient>
 </defs>
-<g transform="translate(5 8)">
- <path d="M70 5C34 5 8 32 8 68c0 25 12 42 29 59 8 8 12 16 12 28h43c0-12 4-20 12-29 17-18 27-34 27-58C131 33 106 5 70 5Z" fill="none" stroke="#f8fbff" stroke-width="8" stroke-linejoin="round"/>
- <path d="M43 82C36 51 56 27 99 19c-1 35-17 60-51 73" fill="url(#leaf)"/>
- <path d="M48 108c11-24 27-43 48-61" fill="none" stroke="#f8fbff" stroke-width="4.5" stroke-linecap="round"/>
- <path d="M49 158h42M55 170h30" stroke="url(#blue)" stroke-width="8" stroke-linecap="round"/>
+<g transform="translate(5 3)">
+ <path d="M70 5C34 5 8 32 8 68c0 25 12 42 29 59 8 8 12 16 12 28h43c0-12 4-20 12-29 17-18 27-34 27-58C131 33 106 5 70 5Z" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+ <path d="M43 82C35 50 55 26 99 17c1 36-16 62-51 76-3-3-4-7-5-11Z" fill="url(#leaf)"/>
+ <path d="M47 111c9-25 25-46 49-67" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/>
+ <path d="M49 158h42M55 171h30M61 184h18" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
 </g>
 <g font-family="Arial,Helvetica,sans-serif" font-style="italic" font-weight="800">
- <text x="155" y="77" font-size="58" fill="#ffffff">Energía</text>
- <text x="153" y="137" font-size="59" fill="#42cbd0">Inteligente</text>
- <path d="M155 151 Q300 181 490 145" fill="none" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"/>
- <path d="M489 19c-4 24-18 40-43 47 4-25 18-40 43-47Z" fill="url(#leaf)"/>
+ <text x="155" y="77" font-size="58" fill="#fff">Energía</text>
+ <text x="153" y="137" font-size="59" fill="#f6c928">Inteligente</text>
+ <path d="M155 151 Q300 181 490 145" fill="none" stroke="url(#green)" stroke-width="9" stroke-linecap="round"/>
+ <path d="M489 19C478 43 463 60 437 68c4-26 20-43 52-49Z" fill="url(#leaf)"/>
+ <path d="M444 63c10-15 22-27 39-37" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".85"/>
 </g>
 </svg>
