@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 300" role="img" aria-labelledby="title desc">
 <title id="title">Energía Inteligente</title>
-<desc id="desc">Logotipo con bombilla amarilla, hoja verde y el nombre Energía Inteligente en blanco y amarillo.</desc>
+<desc id="desc">Logotipo con bombilla amarilla sin hoja y el nombre Energía Inteligente en blanco y amarillo.</desc>
 <defs>
   <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a8ed00"/><stop offset="1" stop-color="#35b900"/></linearGradient>
 </defs>
@@ -9,8 +9,6 @@
     <path d="M135 2V24M52 28l15 18M17 100l23 5M253 100l-23 5M218 28l-15 18M24 62l20 9M246 62l-20 9"/>
     <path d="M135 52c-47 0-82 35-82 81 0 34 18 53 37 75 9 10 13 20 14 32h62c1-12 5-22 14-32 19-22 37-41 37-75 0-46-35-81-82-81Z" stroke-width="12"/>
   </g>
-  <path d="M95 166c-10-56 20-91 84-112-2 59-27 99-84 121" fill="url(#leaf)"/>
-  <path d="M101 185c22-39 47-70 82-103" fill="none" stroke="#071b3a" stroke-width="7" stroke-linecap="round"/>
   <path d="M105 245h60M113 263h44" fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round"/>
 </g>
 <path d="M365 34V260" stroke="#f6c928" stroke-width="5"/>
