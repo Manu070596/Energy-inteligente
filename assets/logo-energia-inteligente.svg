@@ -1,20 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 205" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 300" role="img" aria-labelledby="title">
 <title id="title">Energía Inteligente</title>
 <defs>
- <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d7f51b"/><stop offset=".43" stop-color="#69d20a"/><stop offset="1" stop-color="#15951e"/></linearGradient>
- <linearGradient id="green" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#55d900"/><stop offset=".52" stop-color="#2dcc18"/><stop offset="1" stop-color="#00ad59"/></linearGradient>
+ <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c8f31b"/><stop offset="1" stop-color="#38bd18"/></linearGradient>
 </defs>
-<g transform="translate(4 2)">
- <path d="M70 5C34 5 8 32 8 68c0 25 12 42 29 59 8 8 12 16 12 28h43c0-12 4-20 12-29 17-18 27-34 27-58C131 33 106 5 70 5Z" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
- <path d="M36 92C23 55 49 22 105 13c4 47-18 80-62 100-5-6-7-13-7-21Z" fill="url(#leaf)"/>
- <path d="M46 112C48 87 68 62 99 34" fill="none" stroke="#081c3b" stroke-width="6" stroke-linecap="round"/>
- <path d="M49 158h42M55 171h30M61 184h18" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+<g fill="none" stroke="#f6c928" stroke-linecap="round" stroke-linejoin="round">
+ <path stroke-width="10" d="M150 72V30 M83 87 55 58 M54 145H22 M87 205 57 226 M215 87l28-29 M246 145h32 M211 205l27 21"/>
+ <path stroke-width="13" d="M150 67c-55 0-96 42-96 94 0 35 19 58 39 78 12 13 18 24 18 39h78c0-15 6-26 18-39 20-20 39-43 39-78 0-52-41-94-96-94Z"/>
 </g>
-<g font-family="Arial,Helvetica,sans-serif" font-style="italic" font-weight="800">
- <text x="155" y="77" font-size="58" fill="#fff">Energía</text>
- <text x="153" y="137" font-size="59" fill="#f6c928">Inteligente</text>
- <path d="M493 13C487 43 470 68 435 77c1-34 20-56 58-64Z" fill="url(#leaf)"/>
- <path d="M445 69C455 49 472 31 492 17" fill="none" stroke="#081c3b" stroke-width="4.5" stroke-linecap="round"/>
- <path d="M155 164C225 128 312 140 386 151C441 161 477 145 501 124" fill="none" stroke="url(#green)" stroke-width="21" stroke-linecap="round"/>
+<path d="M101 184c-7-48 23-91 91-112 8 61-18 105-75 129-9-5-14-10-16-17Z" fill="url(#leaf)"/>
+<path d="M115 205c17-37 42-69 73-94" fill="none" stroke="#081c3b" stroke-width="7" stroke-linecap="round"/>
+<g stroke="#fff" stroke-width="12" stroke-linecap="round"><path d="M112 264h76M120 282h60M133 296h34"/></g>
+<path d="M332 36v220" stroke="#f6c928" stroke-width="5"/>
+<g font-family="Arial,Helvetica,sans-serif" font-style="italic" font-weight="900">
+ <text x="382" y="130" font-size="100" letter-spacing="1" fill="#fff">ENERGÍA</text>
+ <text x="382" y="222" font-size="94" letter-spacing="1" fill="#f6c928">INTELIGENTE</text>
 </g>
+<path d="M390 263c110-31 270-22 390-3 96 15 180 9 252-8" fill="none" stroke="#f6c928" stroke-width="9" stroke-linecap="round"/>
 </svg>
