@@ -68,6 +68,13 @@ footer{background:#091a35;color:#dbe6f5;text-align:center;padding:28px 15px;font
 .omie-source a{color:#f6c928;font-weight:800;text-decoration:none}
 .omie-source a:hover{text-decoration:underline}
 @media(max-width:780px){.omie-head{flex-direction:column}.omie-date{white-space:normal}.omie-main{grid-template-columns:1fr}.omie-card{padding:22px 18px}.omie-chart{min-height:180px}.omie-average{padding:21px}}
+
+/* Acceso flotante al formulario de contacto */
+.quick-contact{position:fixed;right:24px;bottom:24px;z-index:30;display:inline-flex;align-items:center;gap:10px;padding:13px 19px;border-radius:999px;background:#f6c928;color:#102a56;text-decoration:none;font-weight:900;font-size:14px;box-shadow:0 8px 26px rgba(8,28,59,.28);border:2px solid rgba(255,255,255,.9);transition:transform .2s,box-shadow .2s}
+.quick-contact:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(8,28,59,.34);color:#102a56}
+.quick-contact-icon{display:inline-flex;width:27px;height:27px;align-items:center;justify-content:center;border-radius:50%;background:#102a56;color:#f6c928;font-size:17px;line-height:1}
+@media(max-width:520px){.quick-contact{right:14px;bottom:14px;padding:11px 15px;font-size:13px}.quick-contact-icon{width:25px;height:25px}}
+
 </style>
 </head>
 <body>
@@ -194,6 +201,7 @@ footer{background:#091a35;color:#dbe6f5;text-align:center;padding:28px 15px;font
 <small>manuelalfageme@aenergetic.es · Estudio inicial sin compromiso</small>
 </div>
 </section>
+<a class="quick-contact" href="#asesoramiento" aria-label="Ir al formulario para solicitar asesoramiento y adjuntar una factura"><span class="quick-contact-icon" aria-hidden="true">↗</span><span>Solicitar estudio</span></a>
 <footer>© 2026 Energía Inteligente · Asesoramiento energético profesional · 8 años de experiencia</footer>
 
 <script>
