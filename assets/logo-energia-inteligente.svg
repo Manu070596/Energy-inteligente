@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-labelledby="title">
+<title id="title">Energía Inteligente</title>
+<defs>
+ <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9be600"/><stop offset="1" stop-color="#38b900"/></linearGradient>
+</defs>
+<g transform="translate(8 5)">
+ <path d="M52 8C25 8 7 28 7 54c0 17 8 28 19 39 5 5 7 10 7 15h39c0-8 3-13 9-20 10-11 16-20 16-35C97 28 78 8 52 8Z" fill="none" stroke="#f5fbff" stroke-width="7" stroke-linejoin="round"/>
+ <path d="M34 66c-2-24 15-39 39-43-1 23-10 42-33 49" fill="url(#leaf)"/>
+ <path d="M39 82c10-14 21-26 34-37" fill="none" stroke="#f5fbff" stroke-width="4" stroke-linecap="round"/>
+ <path d="M39 111h28M43 119h20" stroke="#4cc7df" stroke-width="6" stroke-linecap="round"/>
+</g>
+<g font-family="Arial,Helvetica,sans-serif" font-style="italic" font-weight="800">
+ <text x="120" y="54" font-size="48" fill="#ffffff">Energía</text>
+ <text x="118" y="99" font-size="49" fill="#42c9cf">Inteligente</text>
+ <path d="M119 108 Q270 128 432 105" fill="none" stroke="#f6c928" stroke-width="6" stroke-linecap="round"/>
+ <path d="M444 18c-3 21-14 34-34 38 3-21 14-34 34-38Z" fill="url(#leaf)"/>
+</g>
+</svg>
